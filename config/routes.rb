@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :reviews, only: %i[new create]
   end
-  resources :users, only: :show do
+  resources :users, only: %i[show edit update] do
     resources :reviews, only: %i[new create]
   end
   resources :bookings, only: :destroy
