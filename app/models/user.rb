@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :events
 
   validates :nickname, :first_name, :last_name, :address, :date_of_birth, presence: true
-
+  validates :nickname, uniquness: true
 end
