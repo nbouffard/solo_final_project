@@ -4,8 +4,8 @@ class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
-    @user = user
-    @record = record
+    @user = user # current_user
+    @record = record # the instance that is being checked ie restaurant or review etc
   end
 
   def index?
