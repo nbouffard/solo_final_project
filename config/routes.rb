@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    resources :reviews, only: %i[new create]
-  end
+  devise_for :users
   root to: "pages#home"
   resources :events do
     resources :bookings, only: %i[new create]
@@ -9,6 +7,8 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :reviews, only: %i[new create]
   end
-
+  resources :users, only: %i[show edit update] do
+    resources :reviews, only: %i[new create]
+  end
   resources :bookings, only: :destroy
 end
